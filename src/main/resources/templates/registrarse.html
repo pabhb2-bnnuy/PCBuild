@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse | PCBuid</title>
+
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <style>
+        body {
+            background:
+                radial-gradient(circle at top, rgba(180, 0, 0, 0.18), transparent 30%),
+                linear-gradient(135deg, #070707 0%, #121212 45%, #1a1a1a 100%);
+        }
+
+        .full-strip {
+            width: 100%;
+            background: rgba(35, 35, 35, 0.82);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        .brand-img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(220, 53, 69, 0.35);
+        }
+
+        .hero-title {
+            text-shadow: 0 0 22px rgba(220, 53, 69, 0.22);
+        }
+
+        .register-card {
+            width: min(560px, 100%);
+            background: rgba(24, 24, 24, 0.88);
+            border: 1px solid rgba(220, 53, 69, 0.18);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-vh-100">
+
+    <div class="container-fluid min-vh-100 d-flex flex-column justify-content-between p-0">
+
+        <header class="full-strip d-flex align-items-center justify-content-between px-3 px-md-5 py-3">
+            <div class="d-flex align-items-center gap-3">
+                <img th:src="@{/images/placeholder.png}" alt="Placeholder" class="brand-img">
+                <nav class="d-flex gap-4">
+                    <a th:href="@{/}" class="link-light text-decoration-none fw-semibold">Inicio</a>
+                    <a th:href="@{/contacto}" class="link-light text-decoration-none fw-semibold">Contáctanos</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="flex-grow-1 d-flex align-items-center justify-content-center px-3 py-5">
+            <div class="register-card p-4 p-md-5 text-center">
+                <h1 class="display-5 fw-bold mb-4 hero-title">Crea tu cuenta</h1>
+
+                <form th:action="@{/register}" method="post" class="text-start">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label fw-semibold">Nombre</label>
+                        <input type="text" class="form-control form-control-lg bg-dark text-white border-secondary"
+                            id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Email</label>
+                        <input type="email" class="form-control form-control-lg bg-dark text-white border-secondary"
+                            id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold">Contraseña</label>
+                        <input type="password" class="form-control form-control-lg bg-dark text-white border-secondary"
+                            id="password" name="password" placeholder="Mínimo 6 caracteres y 1 símbolo" minlength="6"
+                            pattern="(?=.*[^A-Za-z0-9]).{6,}"
+                            title="La contraseña debe tener al menos 6 caracteres y un carácter especial" required>
+                        <div class="form-text text-light opacity-75 mt-2">
+                            Debe tener mínimo 6 caracteres y al menos 1 carácter especial.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger btn-lg w-100 fw-semibold rounded-0 mt-2">
+                        Registrarse
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="full-strip d-flex align-items-center justify-content-between px-3 px-md-5 py-3">
+            <a href="https://github.com/TU_USUARIO" target="_blank" rel="noopener noreferrer"
+                class="link-light text-decoration-none fw-semibold">
+                GitHub
+            </a>
+
+            <span class="fw-semibold">© PCBuid 2026</span>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
