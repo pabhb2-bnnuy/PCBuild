@@ -20,4 +20,9 @@ public class LandingController {
     public String login() {
         return "inicioSesion";
     }
+
+    @GetMapping("/menu")
+    public String menu() {
+        return "menu";
+    }
 }

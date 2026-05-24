@@ -37,29 +37,18 @@ public class SecurityConfig {
                                 .authorizeHttpRequests(auth -> auth
                                                 // URLS sin iniciar sesión.
                                                 .requestMatchers(
-                                                                "/","/**",
-                                                                "/inicioSesion",
-                                                                "/registrarse",
-                                                                "/register",
+                                                                "/",
                                                                 "/css/**",
-                                                                "/media/**",
-                                                            "/webjars/bootstrap/**")
+                                                                "/media/**")
                                                 .permitAll()
 
                                                 // URLS para admin
                                                 .requestMatchers("/admin/**")
                                                 .hasRole("ADMIN")
 
-                                                // Urls para Colaborador
-                                                // .requestMatchers("/menu")
-                                                // .hasRole("COLLABORATOR")
-                                                // URLS para Gestor
-                                                .requestMatchers("/menu/gestion")
-                                                .hasRole("GESTOR")
-
                                                 // URLS para gestor y colaborador
-                                                .requestMatchers("/datosProyecto", "/menu")
-                                                .hasAnyRole("GESTOR", "COLLABORATOR", "ADMIN")
+                                                .requestMatchers("/menu")
+                                                .hasAnyRole("ADMIN", "USER")
 
                                                 .anyRequest()
                                                 .authenticated())
@@ -84,37 +73,10 @@ public class SecurityConfig {
                                                                         .anyMatch(a -> a.getAuthority()
                                                                                         .equals("ROLE_ADMIN"));
 
-                                                        boolean isGestor = authorities.stream()
-                                                                        .anyMatch(a -> a.getAuthority()
-                                                                                        .equals("ROLE_GESTOR"));
-
-                                                        boolean isCollaborator = authorities.stream()
-                                                                        .anyMatch(a -> a.getAuthority()
-                                                                                        .equals("ROLE_COLLABORATOR"));
-
                                                         if (isAdmin) {
                                                                 response.sendRedirect("/admin");
-                                                        } else if (isGestor) {
-                                                                response.sendRedirect("/menu/gestion");
-                                                        } else if (isCollaborator) {
+                                                        } else {
                                                                 response.sendRedirect("/menu");
-                                                        } else {
-                                                                response.sendRedirect("/");
-                                                        }
-                                                })
-
-                                                // Login incorrecto personalizado
-                                                .failureHandler((request, response, exception) -> {
-
-                                                        if (exception instanceof DisabledException) {
-
-                                                                response.sendRedirect(
-                                                                                "/inicioSesion?disabled");
-
-                                                        } else {
-
-                                                                response.sendRedirect(
-                                                                                "/inicioSesion?error");
                                                         }
                                                 })
 

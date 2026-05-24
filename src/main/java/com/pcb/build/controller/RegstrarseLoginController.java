@@ -20,8 +20,7 @@ public class RegstrarseLoginController {
     public String register(
             @RequestParam String nombre,
             @RequestParam String email,
-            @RequestParam String password
-    ) {
+            @RequestParam String password) {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setEmail(email);
@@ -29,7 +28,7 @@ public class RegstrarseLoginController {
         usuario.setPassword(passwordEncoder.encode(password));
 
         usuarioRepository.save(usuario);
-        return "redirect:/inicioSesion?registered";
+        return "redirect:/inicioSesion?registrado";
     }
 
 }
