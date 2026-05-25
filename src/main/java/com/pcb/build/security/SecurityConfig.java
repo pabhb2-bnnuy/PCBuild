@@ -38,7 +38,10 @@ public class SecurityConfig {
                                                 .requestMatchers(
                                                                 "/",
                                                                 "/css/**",
-                                                                "/media/**")
+                                                                "/media/**",
+                                                                "/registrarse",
+                                                                "/inicioSesion",
+                                                                "/register")
                                                 .permitAll()
 
                                                 // URLS para admin

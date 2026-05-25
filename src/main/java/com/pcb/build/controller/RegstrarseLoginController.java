@@ -28,7 +28,7 @@ public class RegstrarseLoginController {
         usuario.setPassword(passwordEncoder.encode(password));
 
         usuarioRepository.save(usuario);
-        return "redirect:/inicioSesion?registrado";
+        return "redirect:/inicioSesion";
     }
 
 }
