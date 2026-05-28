@@ -23,7 +23,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE configuracion (
     idconfiguracion int PRIMARY KEY AUTO_INCREMENT,
-    fecha_creacion VARCHAR (50),
+    fechacreacion VARCHAR (50),
     nombre VARCHAR (100) UNIQUE,
     idusuario INT NOT NULL,
     FOREIGN KEY (idusuario) REFERENCES usuario(idusuario) ON DELETE CASCADE

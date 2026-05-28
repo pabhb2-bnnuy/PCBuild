@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    background-color: #070707ea;
+    background-color: #0e0d0dd8;
 
 }
 
@@ -13,7 +13,7 @@ a {
 
 /*Cabezera*/
 header {
-    background: rgb(20, 20, 20);
+    background: rgba(20, 20, 20, 0.842);
     padding: 2%;
     border-bottom: 2px rgba(0, 0, 0, 0.699) solid;
     border-top: 2px rgba(0, 0, 0, 0.699) solid;
@@ -75,7 +75,6 @@ header {
 }
 
 
-
 .reg-bttn {
     background-color: rebeccapurple;
     color: white;
@@ -133,7 +132,7 @@ header {
 .input-reg {
     margin-left: 120px;
     margin-bottom: 20px;
-    background-color: rgba(197, 150, 183, 0.479);
+    background-color: rgba(206, 181, 198, 0.849);
     width: 420px;
     height: 30px;
     border-radius: 5px;
@@ -152,10 +151,22 @@ header {
     font-weight: 600;
 }
 
+/*Styles para menu.html*/
+
+.conf_pc {
+    background-color: rgba(0, 0, 0, 0.404);
+    width: 50%;
+    height: 500px;
+    margin-top: 20px;
+    margin-left: 23%;
+    border-radius: 10px 23px;
+}
+
+
 /*Pie de página*/
 
 footer {
-    background: rgb(20, 20, 20);
+    background: rgba(20, 20, 20, 0.842);
     padding: 2%;
     border-bottom: 2px rgba(0, 0, 0, 0.699) solid;
     border-top: 2px rgba(0, 0, 0, 0.699) solid;

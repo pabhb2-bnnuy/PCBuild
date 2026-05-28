@@ -16,8 +16,7 @@ public class Configuracion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idconfiguracion;
 
-    @Column(insertable = false, updatable = false)
-    private String fechaCreacion;
+    private String fechacreacion;
     private String nombre;
 
     @ManyToOne
