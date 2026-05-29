@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    background-color: #0e0d0dd8;
+    background-color: #1b1d21;
 
 }
 
@@ -13,10 +13,10 @@ a {
 
 /*Cabezera*/
 header {
-    background: rgba(20, 20, 20, 0.842);
+    background: #252932;
     padding: 2%;
-    border-bottom: 2px rgba(0, 0, 0, 0.699) solid;
-    border-top: 2px rgba(0, 0, 0, 0.699) solid;
+    border-bottom: 2px #1a1c20 solid;
+    border-top: 2px #1a1c20 solid;
 }
 
 .container1 {
@@ -28,7 +28,7 @@ header {
 
 .spanheader {
     font-weight: 600;
-    color: white;
+    color: #f4f4f4;
     font-size: 22px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -40,13 +40,14 @@ header {
 }
 
 .logoutt {
-    background-color: rebeccapurple;
+    background-color: #67518b;
     text-align: center;
     padding: 10px;
     width: 120px;
     float: right;
     position: relative;
     bottom: 45px;
+    border-radius: 6px;
 }
 
 /*Cuerpo (Main)*/
@@ -76,23 +77,24 @@ header {
 
 
 .reg-bttn {
-    background-color: rebeccapurple;
+    background-color: #67518b;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 10px;
     text-align: center;
     font-size: 22px;
     font-weight: 600;
+    border-radius: 6px;
 
 }
 
 .inicioA:hover {
-    background-color: rebeccapurple;
+    background-color: #79609e;
 
 }
 
 .log-bttn {
-    border: solid 1px rebeccapurple;
+    border: solid 1px #67518b;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -100,17 +102,20 @@ header {
     text-align: center;
     font-size: 22px;
     font-weight: 600;
+    border-radius: 6px;
+    background-color: transparent;
 
 }
 
 /*Formulario de registro...*/
 .form-reg {
     margin-left: 33%;
-    border: solid 1px rebeccapurple;
+    border: solid 1px #67518b;
     width: 700px;
     height: 550px;
     margin-top: 60px;
-    background-color: rgba(31, 14, 48, 0.13);
+    background-color: #2b3038;
+    border-radius: 10px;
 }
 
 .h1reg {
@@ -123,7 +128,7 @@ header {
 
 .reg-txt {
     margin-left: 120px;
-    color: white;
+    color: #ededed;
     font-size: 17px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -132,10 +137,12 @@ header {
 .input-reg {
     margin-left: 120px;
     margin-bottom: 20px;
-    background-color: rgba(206, 181, 198, 0.849);
+    background-color: #3a404b;
     width: 420px;
     height: 30px;
     border-radius: 5px;
+    border: 1px solid #505867;
+    color: white;
 
 }
 
@@ -145,31 +152,143 @@ header {
     height: 45px;
     border-radius: 5px;
     margin-top: 20px;
-    background-color: rgba(114, 14, 180, 0.411);
+    background-color: #67518b;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     font-weight: 600;
+    border: none;
 }
 
-/*Styles para menu.html*/
-
 .conf_pc {
-    background-color: rgba(0, 0, 0, 0.404);
+    background-color: #2b3038;
     width: 50%;
-    height: 500px;
+    height: 600px;
     margin-top: 20px;
     margin-left: 23%;
     border-radius: 10px 23px;
+    border: 1px solid #424853;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
+.conf_scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 10px;
+}
+
+.info_conf {
+    border: 1.5px solid #67518b;
+    background-color: #353b45;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.config_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.config_name {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: system-ui;
+}
+
+.config_fecha {
+    color: #c9c9c9;
+    font-size: 15px;
+    font-family: system-ui;
+}
+
+.config_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.config_prod {
+    background-color: #2a2f38;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.prod_nombre {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    font-family: system-ui;
+}
+
+.prod_info {
+    display: flex;
+    gap: 15px;
+    color: #d0d0d0;
+    font-size: 14px;
+    font-family: system-ui;
+}
+
+.config_bottom {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn_conf {
+    background-color: #67518b;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+.btn_delete {
+    background-color: #8b5151;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+.conf_actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_add {
+    background-color: #67518b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+.btn_remove {
+    background-color: #8b5151;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: system-ui;
+    font-weight: 600;
+}
 
 /*Pie de página*/
 
 footer {
-    background: rgba(20, 20, 20, 0.842);
+    background: #252932;
     padding: 2%;
-    border-bottom: 2px rgba(0, 0, 0, 0.699) solid;
-    border-top: 2px rgba(0, 0, 0, 0.699) solid;
+    border-bottom: 2px #1a1c20 solid;
+    border-top: 2px #1a1c20 solid;
     margin-top: 297px;
 }
 

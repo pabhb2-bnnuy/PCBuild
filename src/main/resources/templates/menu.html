@@ -24,8 +24,29 @@
     <main>
 
 
-    <div class="conf_pc"><div>aa</div></div>
-
+        <div class="conf_pc">
+            <div class="conf_scroll">
+                <div class="info_conf" th:each="config : ${configuraciones}">
+                    <div class="config_top"> <span class="config_name" th:text="${config.nombre}"></span> <span
+                            class="config_fecha" th:text="${config.fechacreacion}"></span> </div>
+                    <div class="config_body">
+                        <div class="config_prod" th:each="producto : ${config.productos}"> <span class="prod_nombre"
+                                th:text="${producto.nombre}"></span>
+                            <div class="prod_info"> <span th:text="${producto.marca}"></span> <span
+                                    th:text="${producto.modelo}"></span> <span
+                                    th:text="${producto.precio + '€'}"></span> </div>
+                        </div>
+                    </div>
+                    <div class="config_bottom"> <a th:href="@{/configuracion/{id}(id=${config.idconfiguracion})}"
+                            class="btn_conf"> Ver configuración </a> <a
+                            th:href="@{/configuracion/eliminar/{id}(id=${config.idconfiguracion})}" class="btn_delete">
+                            Eliminar configuración </a> </div>
+                </div>
+            </div>
+            <div class="conf_actions"> <a th:href="@{/configuracion/nueva}" class="btn_add"> + Añadir configuración </a>
+                <a th:href="@{/configuracion/eliminarTodas}" class="btn_remove"> Eliminar todas </a>
+            </div>
+        </div>
 
     </main>
 
