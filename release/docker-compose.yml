@@ -1,0 +1,62 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pcbuild-app
+    restart: unless-stopped
+    expose:
+      - "8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/pcbuild
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: toor
+    networks:
+      - pcbuild-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: pcbuild-mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./pcbuild.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - pcbuild-network
+
+  nginx:
+    image: nginx:latest
+    container_name: pcbuild-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - app
+    networks:
+      - pcbuild-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: pcbuild-certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+networks:
+  pcbuild-network:
+    driver: bridge
+
+volumes:
+  mysql_data:

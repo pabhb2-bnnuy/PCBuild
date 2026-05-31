@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "configuracion")
@@ -29,13 +28,4 @@ public class Configuracion {
    @OneToMany(mappedBy = "configuracion", fetch = FetchType.EAGER)
 private List<ProductoConfiguracion> productoConfiguraciones;
 
-    // Método helper para obtener los productos directamente
-    public List<Producto> getProductos() {
-        if (productoConfiguraciones == null) {
-            return List.of();
-        }
-        return productoConfiguraciones.stream()
-                .map(ProductoConfiguracion::getProducto)
-                .collect(Collectors.toList());
-    }
 }

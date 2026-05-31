@@ -34,7 +34,7 @@ public class SecurityConfig {
                                 .csrf(csrf -> csrf.disable())
 
                                 .authorizeHttpRequests(auth -> auth
-                                                // URLS sin iniciar sesión.
+                                                // URLs without logging in.
                                                 .requestMatchers(
                                                                 "/",
                                                                 "/css/**",
@@ -45,11 +45,11 @@ public class SecurityConfig {
                                                         "/forgot-password")
                                                 .permitAll()
 
-                                                // URLS para admin
+                                                // URLs for admin
                                                 .requestMatchers("/admin/**")
                                                 .hasRole("ADMIN")
 
-                                                // URLS para Usuario y admin
+                                                // URLs for User and admin
                                                 .requestMatchers("/menu", "/configuracion/**")
                                                 .hasAnyRole("ADMIN", "USER")
 
@@ -58,13 +58,13 @@ public class SecurityConfig {
 
                                 .formLogin(form -> form
 
-                                                // Página login (GET)
+                                                // Login page (GET)
                                                 .loginPage("/inicioSesion")
 
-                                                // Procesar login (POST)
+                                                // Process login (POST)
                                                 .loginProcessingUrl("/inicioSesion")
 
-                                                // Names del formulario
+                                                // Form field names
                                                 .usernameParameter("mail")
                                                 .passwordParameter("password")
 
@@ -85,16 +85,16 @@ public class SecurityConfig {
 
                                                 .permitAll())
 
-                                // PERSISTENCIA DE SESIÓN
+                                // SESSION PERSISTENCE
                                 .rememberMe(remember -> remember
 
-                                                // name="" del checkbox
+                                                // name of the checkbox
                                                 .rememberMeParameter("remember-me")
 
-                                                // clave interna
+                                                // internal key
                                                 .key("vlc-clave-secreta-2026"))
 
-                                // Cerrar sesión.
+                                // Log out.
                                 .logout(logout -> logout
 
                                                 .logoutUrl("/cerrarSesion")
