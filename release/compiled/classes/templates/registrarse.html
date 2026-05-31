@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCBuild | Registrarse</title>
+      <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="shortcut icon" th:href="@{media/small1.svg}" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Cabezera -->
+      <header>
+
+        <div class="container1">
+            <div><a th:href="@{/}"><img th:src="@{media/full1.svg}" alt="pcbuild_logo" width="150px"></a></div>
+        </div>
+    </header>
+    <!-- Main, Cuerpo -->
+    <main>
+
+
+        <div class="form-reg">
+            <h1 class="h1reg">Crea tu cuenta</h1>
+
+            <form th:action="@{/register}" method="post">
+
+                <!-- div para el nombre -->
+                <div>
+                    <label for="nombre" class="reg-txt">Nombre</label>
+                    <br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required class="input-reg">
+                </div>
+                <!-- div para el email -->
+                <div>
+                    <label for="email" class="reg-txt">Email</label>
+                    <br>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required class="input-reg">
+                </div>
+                <!-- divs para la contraseña -->
+                <div>
+                    <label for="password" class="reg-txt">Contraseña</label>
+                    <br>
+                    <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres y 1 símbolo"
+                        minlength="6" pattern="(?=.*[^A-Za-z0-9]).{6,}"
+                        title="La contraseña debe tener al menos 6 caracteres y un carácter especial" required
+                        class="input-reg">
+                    <div class="reg-txt" style="font-size: 14px;">
+                        Debe tener mínimo 6 caracteres y al menos 1 carácter especial.
+                    </div>
+                </div>
+
+                <input type="submit" value="Registrarse" class="input-regs">
+
+
+            </form>
+        </div>
+    </main>
+
+
+    <!-- Pie de página -->
+    <footer style="margin-top: 120px;">
+
+        <div class="containerfooter">
+
+            <div><span class="spanfooter">2026</span></div>
+
+            <a href="index.html">
+                <div><span class="spanfooter">PCBuild©</span></div>
+            </a>
+
+             <a href="https://github.com/pabhb2-bnnuy">
+
+                <div><img th:src="@{media/github.svg}" alt="github_logo" width="20px">
+                </div>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

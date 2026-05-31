@@ -1,0 +1,322 @@
+/*GLOBAL*/
+
+body {
+    margin: 0;
+    background-color: #1b1d21;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*Cabezera*/
+
+header {
+    background: #252932;
+    padding: 2%;
+    border-bottom: 2px #1a1c20 solid;
+    border-top: 2px #1a1c20 solid;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: left;
+    gap: 20px;
+}
+
+.spanheader {
+    font-weight: 600;
+    color: #f4f4f4;
+    font-size: 22px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logoutt a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logoutt {
+    background-color: #67518b;
+    text-align: center;
+    padding: 10px;
+    width: 120px;
+    float: right;
+    position: relative;
+    bottom: 45px;
+    border-radius: 6px;
+}
+
+/*Cuerpo (Main)*/
+
+.divmain {
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.h1main {
+    font-weight: 600;
+    color: white;
+    font-size: 95px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contmain {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 20px;
+}
+
+.reg-bttn {
+    background-color: #67518b;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.inicioA:hover {
+    background-color: #79609e;
+}
+
+.log-bttn {
+    border: solid 1px #67518b;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.english {
+    display: inline-block;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: solid 1px #67518b;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    background-color: #5d3697;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-left: 690px;
+    margin-top: 15px;
+}
+
+/*Formulario de registro...*/
+
+.form-reg {
+    margin-left: 33%;
+    border: solid 1px #67518b;
+    width: 700px;
+    height: 550px;
+    margin-top: 60px;
+    background-color: #2b3038;
+    border-radius: 10px;
+}
+
+.h1reg {
+    font-weight: 600;
+    color: white;
+    font-size: 70px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+}
+
+.reg-txt {
+    margin-left: 120px;
+    color: #ededed;
+    font-size: 17px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.input-reg {
+    margin-left: 120px;
+    margin-bottom: 20px;
+    background-color: #3a404b;
+    width: 420px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #505867;
+    color: white;
+}
+
+.input-regs {
+    margin-left: 120px;
+    width: 420px;
+    height: 45px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #67518b;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+
+.english {
+    width: 450px;
+}
+
+/*seccion de configuracion */
+
+.conf_pc {
+    background-color: #2b3038;
+    width: 50%;
+    height: 600px;
+    margin-top: 20px;
+    margin-left: 23%;
+    border-radius: 10px 23px;
+    border: 1px solid #424853;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.conf_scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 10px;
+}
+
+.info_conf {
+    border: 1.5px solid #67518b;
+    background-color: #353b45;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.config_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.config_name {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: system-ui;
+}
+
+.config_fecha {
+    color: #c9c9c9;
+    font-size: 15px;
+    font-family: system-ui;
+}
+
+.config_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.config_prod {
+    background-color: #2a2f38;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.prod_nombre {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    font-family: system-ui;
+}
+
+.prod_info {
+    display: flex;
+    gap: 15px;
+    color: #d0d0d0;
+    font-size: 14px;
+    font-family: system-ui;
+}
+
+.config_bottom {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn_conf {
+    background-color: #67518b;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+.btn_delete {
+    background-color: #8b5151;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+.conf_actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_add {
+    background-color: #67518b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+.btn_remove {
+    background-color: #8b5151;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: system-ui;
+    font-weight: 600;
+}
+
+/*Pie de página*/
+
+footer {
+    background: #252932;
+    padding: 2%;
+    border-bottom: 2px #1a1c20 solid;
+    border-top: 2px #1a1c20 solid;
+    margin-top: 297px;
+}
+
+.spanfooter {
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.containerfooter {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footerm {
+    margin-top: 50px;
+}

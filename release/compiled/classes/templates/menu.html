@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCBuild, buildea tus sueños</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="shortcut icon" th:href="@{media/small1.svg}" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <div class="container1">
+            <div>
+                <a th:href="@{/menu}">
+                    <img th:src="@{media/full1.svg}" alt="pcbuild_logo" width="150px">
+                </a>
+            </div>
+        </div>
+        <div class="logoutt">
+            <a href="/cerrarSesion">Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="conf_pc">
+            <div class="conf_scroll">
+                <div class="info_conf" th:each="config : ${configuraciones}">
+                    <div class="config_top">
+                        <span class="config_name" th:text="${config.nombre}"></span>
+                        <span class="config_fecha" th:text="${config.fechacreacion}"></span>
+                    </div>
+
+                    <div class="config_bottom">
+                        <a th:href="@{/configuracion/{id}(id=${config.idconfiguracion})}" class="btn_conf">
+                            Ver configuración
+                        </a>
+                        <a th:href="@{/configuracion/eliminar/{id}(id=${config.idconfiguracion})}" class="btn_delete">
+                            Eliminar configuración
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conf_actions">
+                <a th:href="@{/configuracion/nueva}" class="btn_add">+ Añadir configuración</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footerm">
+        <div class="containerfooter">
+            <div><span class="spanfooter">2026</span></div>
+            <div><span class="spanfooter">PCBuild©</span></div>
+            <a href="https://github.com/pabhb2-bnnuy">
+                <div>
+                    <img th:src="@{media/github.svg}" alt="github_logo" width="20px">
+                </div>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

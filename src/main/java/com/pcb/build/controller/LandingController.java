@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.pcb.build.model.Configuracion;
 import com.pcb.build.repository.ConfiguracionRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LandingController {

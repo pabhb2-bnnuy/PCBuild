@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCBuild | buildea tus sueños</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="shortcut icon" th:href="@{media/small1.svg}" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Cabezera -->
+    <header>
+
+        <div class="container1">
+            <div><a th:href="@{/}"><img th:src="@{media/full1.svg}" alt="pcbuild_logo" width="150px"></a></div>
+        </div>
+    </header>
+
+    <!-- Main, Cuerpo -->
+    <main>
+
+
+        <div class="divmain">
+            <h1 class="h1main">Buildea el <span style="color: rebeccapurple;">PC</span> de tus sueños</h1>
+        </div>
+        <div class="contmain">
+            <a th:href="@{/registrarse}">
+                <div class="reg-bttn">Registrarse</div>
+            </a>
+            <a th:href="@{/inicioSesion}" class="inicioA">
+                <div class="log-bttn">Iniciar Sesión</div>
+            </a>
+        </div>
+        <a th:href="@{/forgot-password}" class="english">Did you forget your password?</a>
+
+
+
+    </main>
+
+
+    <!-- Pie de página -->
+    <footer style="margin-top: 215px;">
+
+        <div class="containerfooter">
+
+            <div><span class="spanfooter">2026</span></div>
+
+            <div><span class="spanfooter">PCBuild©</span></div>
+
+            <a href="https://github.com/pabhb2-bnnuy">
+
+                <div><img th:src="@{media/github.svg}" alt="github_logo" width="20px">
+                </div>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
