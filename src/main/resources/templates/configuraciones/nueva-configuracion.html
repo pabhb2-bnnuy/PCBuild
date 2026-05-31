@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva configuración - PCBuild</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="shortcut icon" th:href="@{/media/small1.svg}" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <div class="container1">
+            <div>
+                <a th:href="@{/menu}">
+                    <img th:src="@{/media/full1.svg}" alt="pcbuild_logo" width="150px">
+                </a>
+            </div>
+        </div>
+        <div class="logoutt">
+            <a href="/cerrarSesion">Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-reg">
+            <h1 class="h1reg">Nueva configuración</h1>
+
+            <form th:action="@{/configuracion/guardar}" th:object="${configuracion}" method="post">
+
+                <label class="reg-txt" for="nombre">Nombre:</label>
+                <input class="input-reg" type="text" id="nombre" th:field="*{nombre}" required>
+
+
+                <div class="config_bottom" style="margin-left: 250px;">
+                    <button class="btn_conf" type="submit">Guardar</button>
+                    <a th:href="@{/menu}" class="btn_delete">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer style="margin-top: 99px;">
+        <div class="containerfooter">
+            <div><span class="spanfooter">2026</span></div>
+            <div><span class="spanfooter">PCBuild©</span></div>
+            <a href="https://github.com/pabhb2-bnnuy">
+                <div>
+                    <img th:src="@{/media/github.svg}" alt="github_logo" width="20px">
+                </div>
+            </a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

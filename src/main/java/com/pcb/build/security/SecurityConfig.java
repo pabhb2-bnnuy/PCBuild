@@ -41,15 +41,16 @@ public class SecurityConfig {
                                                                 "/media/**",
                                                                 "/registrarse",
                                                                 "/inicioSesion",
-                                                                "/register")
+                                                                "/register",
+                                                        "/forgot-password")
                                                 .permitAll()
 
                                                 // URLS para admin
                                                 .requestMatchers("/admin/**")
                                                 .hasRole("ADMIN")
 
-                                                // URLS para gestor y colaborador
-                                                .requestMatchers("/menu")
+                                                // URLS para Usuario y admin
+                                                .requestMatchers("/menu", "/configuracion/**")
                                                 .hasAnyRole("ADMIN", "USER")
 
                                                 .anyRequest()

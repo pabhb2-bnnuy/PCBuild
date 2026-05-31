@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -11,58 +11,52 @@
 
 <body>
 
-    <!-- Cabezera -->
     <header>
-
         <div class="container1">
-            <div><a th:href="@{/menu}"><img th:src="@{media/full1.svg}" alt="pcbuild_logo" width="150px"></a></div>
+            <div>
+                <a th:href="@{/menu}">
+                    <img th:src="@{media/full1.svg}" alt="pcbuild_logo" width="150px">
+                </a>
+            </div>
         </div>
-        <div class="logoutt"><a href="/cerrarSesion">Cerrar Sesión</a></div>
+        <div class="logoutt">
+            <a href="/cerrarSesion">Cerrar Sesión</a>
+        </div>
     </header>
 
-    <!-- Main, Cuerpo -->
     <main>
-
-
         <div class="conf_pc">
             <div class="conf_scroll">
                 <div class="info_conf" th:each="config : ${configuraciones}">
-                    <div class="config_top"> <span class="config_name" th:text="${config.nombre}"></span> <span
-                            class="config_fecha" th:text="${config.fechacreacion}"></span> </div>
-                    <div class="config_body">
-                        <div class="config_prod" th:each="producto : ${config.productos}"> <span class="prod_nombre"
-                                th:text="${producto.nombre}"></span>
-                            <div class="prod_info"> <span th:text="${producto.marca}"></span> <span
-                                    th:text="${producto.modelo}"></span> <span
-                                    th:text="${producto.precio + '€'}"></span> </div>
-                        </div>
+                    <div class="config_top">
+                        <span class="config_name" th:text="${config.nombre}"></span>
+                        <span class="config_fecha" th:text="${config.fechacreacion}"></span>
                     </div>
-                    <div class="config_bottom"> <a th:href="@{/configuracion/{id}(id=${config.idconfiguracion})}"
-                            class="btn_conf"> Ver configuración </a> <a
-                            th:href="@{/configuracion/eliminar/{id}(id=${config.idconfiguracion})}" class="btn_delete">
-                            Eliminar configuración </a> </div>
+
+                    <div class="config_bottom">
+                        <a th:href="@{/configuracion/{id}(id=${config.idconfiguracion})}" class="btn_conf">
+                            Ver configuración
+                        </a>
+                        <a th:href="@{/configuracion/eliminar/{id}(id=${config.idconfiguracion})}" class="btn_delete">
+                            Eliminar configuración
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="conf_actions"> <a th:href="@{/configuracion/nueva}" class="btn_add"> + Añadir configuración </a>
-                <a th:href="@{/configuracion/eliminarTodas}" class="btn_remove"> Eliminar todas </a>
+
+            <div class="conf_actions">
+                <a th:href="@{/configuracion/nueva}" class="btn_add">+ Añadir configuración</a>
             </div>
         </div>
-
     </main>
 
-
-    <!-- Pie de página -->
-    <footer>
-
+    <footer class="footerm">
         <div class="containerfooter">
-
             <div><span class="spanfooter">2026</span></div>
-
             <div><span class="spanfooter">PCBuild©</span></div>
-
             <a href="https://github.com/pabhb2-bnnuy">
-
-                <div><img th:src="@{media/github.svg}" alt="github_logo" width="20px">
+                <div>
+                    <img th:src="@{media/github.svg}" alt="github_logo" width="20px">
                 </div>
             </a>
         </div>

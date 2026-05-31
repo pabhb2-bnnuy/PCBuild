@@ -29,7 +29,6 @@ public class Usuario implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
-    @Column(unique = true)
     private String password;
     private String nombre;
 
