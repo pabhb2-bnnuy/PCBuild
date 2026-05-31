@@ -10,7 +10,9 @@
 </p>
 
 <p align="left">
-  Preparate para buildear tu pc soñado con un par de pasos para desplegar localmente esta web/app
+  Preparate para buildear tu pc soñado con un par de pasos para desplegar localmente esta web/app.
+
+  Incluye un servicio con cerbot para futura escalación a SSL/HTTPS.
 </p>
 
 ---
@@ -92,7 +94,7 @@ release/
 ├── docker-compose.yml
 ├── .env
 ├── Dockerfile
-├── todo_vlc.sql
+├── pcbuild.sql
 └── nginx.conf
 ```
 

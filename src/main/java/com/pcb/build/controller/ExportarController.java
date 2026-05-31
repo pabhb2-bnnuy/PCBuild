@@ -53,7 +53,7 @@ public class ExportarController {
             return;
         }
 
-        // Cargar productos de la configuración
+        // Load configuration products
         List<ProductoConfiguracion> lista = productoConfiguracionRepository.findByConfiguracionIdconfiguracion(id);
         Map<String, Producto> seleccionados = new HashMap<>();
         for (ProductoConfiguracion pc : lista) {
@@ -61,10 +61,10 @@ public class ExportarController {
             seleccionados.put(p.getCategoria(), p);
         }
 
-        // Crear contenido del TXT
+        // Create TXT content
         StringBuilder contenido = new StringBuilder();
-        contenido.append("CONFIGURACIÓN PC - ").append(configuracion.getNombre()).append("\n");
-        contenido.append("Fecha de creación: ").append(configuracion.getFechacreacion()).append("\n\n");
+        contenido.append("PC CONFIGURATION - ").append(configuracion.getNombre()).append("\n");
+        contenido.append("Creation date: ").append(configuracion.getFechacreacion()).append("\n\n");
 
         List<String> categorias = Arrays.asList(
                 "Placa base",
@@ -82,19 +82,19 @@ public class ExportarController {
             Producto prod = seleccionados.get(cat);
             if (prod != null) {
                 contenido.append("  - ").append(prod.getNombre()).append("\n");
-                contenido.append("    Marca: ").append(prod.getMarca()).append("\n");
-                contenido.append("    Modelo: ").append(prod.getModelo()).append("\n");
-                contenido.append("    Precio: ").append(prod.getPrecio()).append("€\n");
+                contenido.append("    Brand: ").append(prod.getMarca()).append("\n");
+                contenido.append("    Model: ").append(prod.getModelo()).append("\n");
+                contenido.append("    Price: ").append(prod.getPrecio()).append("€\n");
                 total += prod.getPrecio();
             } else {
-                contenido.append("  No seleccionado\n");
+                contenido.append("  Not selected\n");
             }
             contenido.append("\n");
         }
 
         contenido.append("TOTAL: ").append(total).append("€\n");
 
-        // Configurar respuesta para descargar TXT
+        // Configure response for TXT download
         response.setHeader("Content-Disposition",
                 "attachment; filename=\"" + configuracion.getNombre().replaceAll("[^a-zA-Z0-9]", "_") + ".txt\"");
         response.setContentType("text/plain;charset=UTF-8");

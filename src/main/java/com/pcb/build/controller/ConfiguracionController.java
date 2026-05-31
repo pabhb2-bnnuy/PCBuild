@@ -30,7 +30,7 @@ public class ConfiguracionController {
     @Autowired
     private ProductoConfiguracionRepository productoConfiguracionRepository;
 
-    // Nueva configuración
+    // New configuration
     @GetMapping("/nueva")
     public String nuevaConfiguracion(Model model, Principal principal) {
         Configuracion configuracion = new Configuracion();
@@ -52,7 +52,7 @@ public class ConfiguracionController {
         return "redirect:/menu";
     }
 
-    // Ver / editar configuración
+    // View / edit configuration
     @GetMapping("/{id}")
     public String verConfiguracion(@PathVariable Integer id, Model model, Principal principal) {
         String email = principal.getName();
@@ -68,7 +68,7 @@ public class ConfiguracionController {
             return "redirect:/menu";
         }
 
-        // Cargar productos actuales de la configuración
+        // Load current configuration products
         List<ProductoConfiguracion> lista = productoConfiguracionRepository.findByConfiguracionIdconfiguracion(id);
         Map<String, Producto> seleccionados = new HashMap<>();
         for (ProductoConfiguracion pc : lista) {
@@ -79,7 +79,7 @@ public class ConfiguracionController {
         model.addAttribute("configuracion", configuracion);
         model.addAttribute("seleccionados", seleccionados);
 
-        // Todas las categorías necesarias
+        // All required categories
         List<String> categorias = Arrays.asList(
                 "Placa base",
                 "Procesador",
@@ -91,7 +91,7 @@ public class ConfiguracionController {
 
         model.addAttribute("categorias", categorias);
 
-        // Todos los productos por categoría
+        // All products by category
         Map<String, List<Producto>> porCategoria = new HashMap<>();
         for (String cat : categorias) {
             porCategoria.put(cat, productoRepository.findByCategoria(cat));
@@ -120,7 +120,7 @@ public class ConfiguracionController {
             return "redirect:/menu";
         }
 
-        // Compatibilidad placa base / procesador
+        // Motherboard / CPU compatibility
         String placaBaseNombre = params.get("Placa base");
         String procesadorNombre = params.get("Procesador");
 
@@ -133,7 +133,7 @@ public class ConfiguracionController {
                 boolean placaAMD = placa.getNombre().toUpperCase().endsWith("AMD");
                 boolean placaINTEL = placa.getNombre().toUpperCase().endsWith("INTEL");
 
-                // Si hay un CPU seleccionado incompatible
+                // If an incompatible CPU is selected
                 if (procesadorNombre != null && !procesadorNombre.isEmpty()) {
                     Producto cpu = productoRepository.findByNombre(procesadorNombre).orElse(null);
 
@@ -142,23 +142,23 @@ public class ConfiguracionController {
                         boolean cpuINTEL = cpu.getMarca().equalsIgnoreCase("Intel");
 
                         if ((placaAMD && cpuINTEL) || (placaINTEL && cpuAMD)) {
-                            // Quitar el CPU
+                            // Remove CPU
                             params.put("Procesador", "");
                             mensajeError = placaAMD
-                                    ? "Has cambiado a placa AMD. Se ha quitado el CPU. Necesitas un procesador AMD."
-                                    : "Has cambiado a placa INTEL. Se ha quitado el CPU. Necesitas un procesador INTEL.";
+                                    ? "You have switched to an AMD motherboard. The CPU has been removed. You need an AMD processor."
+                                    : "You have switched to an INTEL motherboard. The CPU has been removed. You need an INTEL processor.";
                         }
                     }
                 }
             }
         }
 
-        // Borrar productos actuales de la configuración
+        // Delete current configuration products
         List<ProductoConfiguracion> actuales = productoConfiguracionRepository
                 .findByConfiguracionIdconfiguracion(idconfiguracion);
         productoConfiguracionRepository.deleteAll(actuales);
 
-        // Guardar nuevos
+        // Save new ones
         for (Map.Entry<String, String> entry : params.entrySet()) {
             String categoria = entry.getKey();
             String nombreProducto = entry.getValue();
@@ -194,22 +194,22 @@ public class ConfiguracionController {
     }
 
     @GetMapping("/eliminar/{id}")
-public String eliminarConfiguracion(@PathVariable Integer id, Principal principal) {
-    String email = principal.getName();
-    Usuario usuario = usuarioRepository.findByEmail(email).orElseThrow();
+    public String eliminarConfiguracion(@PathVariable Integer id, Principal principal) {
+        String email = principal.getName();
+        Usuario usuario = usuarioRepository.findByEmail(email).orElseThrow();
 
-    Configuracion configuracion = configuracionRepository.getReferenceById(id);
-    if (!configuracion.getUsuario().getIdusuario().equals(usuario.getIdusuario())) {
+        Configuracion configuracion = configuracionRepository.getReferenceById(id);
+        if (!configuracion.getUsuario().getIdusuario().equals(usuario.getIdusuario())) {
+            return "redirect:/menu";
+        }
+
+        // Delete associated products first
+        List<ProductoConfiguracion> productos = productoConfiguracionRepository.findByConfiguracionIdconfiguracion(id);
+        productoConfiguracionRepository.deleteAll(productos);
+
+        // Then delete configuration
+        configuracionRepository.delete(configuracion);
+
         return "redirect:/menu";
     }
-
-    // Borrar productos asociados primero
-    List<ProductoConfiguracion> productos = productoConfiguracionRepository.findByConfiguracionIdconfiguracion(id);
-    productoConfiguracionRepository.deleteAll(productos);
-
-    // Luego borrar la configuración
-    configuracionRepository.delete(configuracion);
-
-    return "redirect:/menu";
-}
 }
