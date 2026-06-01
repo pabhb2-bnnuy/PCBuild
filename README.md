@@ -12,7 +12,7 @@
 <p align="left">
   Preparate para buildear tu pc soñado con un par de pasos para desplegar localmente esta web/app.
 
-  Incluye un servicio con cerbot para futura escalación a SSL/HTTPS.
+  Incluye un servicio (como container en docker) con certbot para futura escalación a SSL/HTTPS.
 </p>
 
 ---
