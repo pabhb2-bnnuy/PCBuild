@@ -1,12 +1,10 @@
 # PCBuild
 
---
-
 ## Presentación en canva del proyecto 
 
 https://canva.link/3nj0t1b5ke52svf
 
---
+---
 
 <p align="center">
 
