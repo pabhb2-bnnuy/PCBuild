@@ -1,5 +1,13 @@
 # PCBuild
 
+--
+
+## Presentación en canva del proyecto 
+
+https://canva.link/3nj0t1b5ke52svf
+
+--
+
 <p align="center">
 
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
